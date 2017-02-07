@@ -1,27 +1,41 @@
 <section class="main-bg page1 ">
-        <header>
-            <div class="col-md-12 col-sm-12 col-xs-12 p10">
-                <div class="col-md-6 col-sm-6 col-xs-12 logo">
-                    <a href="#">
-                        <img src="assets/images/logo-new.png" alt="Company Logo">
+    <header>
+        <div class="col-md-12 col-sm-12 col-xs-12 p10">
+            <div class="col-md-6 col-sm-6 col-xs-12 logo">
+                <div id="image-outlay">
+                    <a id="logo" (click)="uploadImage(imgElement)">
+                        <img #imgElement src="assets/images/logo-new.png" alt="Company Logo"/>
+                        <i class="fa fa-camera" aria-hidden="true"></i>
                     </a>
                 </div>
             </div>
-        </header>
-        <!-- Header Section End-->
-        <section class="main-section bg-style">
-            <!-- Content Section-->
-            <div class="container text-center">
-                <div class="landing-page">
-                    <h1 class="main-head">Calculate the risk of you getting a heart disease.</h1>
-                    <h2 class="sub-head">Heart problems are at an all time high. See if your lifestyle makes you susceptible.</h2>
-                    <p class="description"></p>
-					<div class="input-section">
-						<input type="text" class=""  placeholder="Name">
-						<input type="email" class=""  placeholder="Email">
-					</div>
-                    <button class="btn prime-action  next-step sliding-next " data-slide="2">Estimate Costs</button>
+        </div>
+    </header>
+    <!-- Header Section End-->
+    <section class="main-section bg-style">
+        <!-- Content Section-->
+        <div class="container text-center">
+            <div class="landing-page">
+                <h1 class="main-head" [(editable)]="page.control.mainheading" style="outline: none"
+                    contenteditable="true" [innerHTML]="page.control.mainheading" (input)="setMainHeading($event)">
+                </h1>
+                <p class="sub-head" [(editable)]="page.control.subheading"
+                   style="outline: none;font-style:normal" contenteditable="true"
+                   [innerHTML]="page.control.subheading" (input)="setSubHeading($event)"></p>
+                <p class="description"></p>
+                <div class="input-section">
+                    <input type="text" [placeholder]="page.control.inputname"
+                           (keyup)="setInputName($event)" (blur)="$event.target.value = ''">
+                    <input type="email" [placeholder]="page.control.inputemail" (keyup)="setInputEmail($event)"
+                           (blur)="$event.target.value=''">
                 </div>
+                <button class="btn prime-action  next-step sliding-next " data-slide="2" contenteditable="true"
+                        [innerHTML]="page.control.submitButton" [(editable)]="page.control.submitButton"
+                        (input)="setSubmitButton($event)">
+                </button>
             </div>
-            <!-- Content Section end-->
-        </section>
+        </div>
+        <!-- Content Section end-->
+    </section>
+</section>
+<toolbar></toolbar>

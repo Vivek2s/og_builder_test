@@ -1,19 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from "@angular/core";
 
 @Component({
-  selector: 'app-builder',
-  template: `
-    <welcome></welcome>
-    <question></question>
+    selector: 'app-builder',
+    template: `
     <lead-generation></lead-generation>
-  `,
-  styles: []
+  `
 })
 export class BuilderComponent implements OnInit {
 
-  constructor() { }
+    constructor() {
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
 }
